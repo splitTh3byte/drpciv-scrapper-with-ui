@@ -16,7 +16,6 @@ if (!isset($_POST['username'], $_POST['password'])) {
 } else {
 
     $stmt = $link->prepare("SELECT id, password FROM `drpciv`.`users` WHERE `username` = ?");
-    // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
     // Store the result so we can check if the account exists in the database.
